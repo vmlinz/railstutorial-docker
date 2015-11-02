@@ -1,10 +1,22 @@
-db:
-  image: postgres
+
 web:
   build: .
-  command: "bundle exec puma -C config/puma.rb"
+  command: ./script/start.sh
+  volumes:
+    - .:/usr/src/app
+  volumes_from:
+    - bundler-cache
   ports:
     - "3000:3000"
   links:
     - db
+bundler-cache:
+  image: ruby:2.2
+  command: /bin/true
+  volumes:
+    - /var/lib/bundle
+db:
+  image: postgres
+  ports:
+    - "5432"
 
