@@ -2,7 +2,7 @@ web:
   build: .
   command: ./script/start.sh
   volumes:
-    - .:/usr/src/app:ro
+    - .:/usr/src/app
   volumes_from:
     - bundler-cache
   ports:
