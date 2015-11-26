@@ -39,6 +39,13 @@ gem 'pg', '~> 0.18.3'
 # use puma as application server
 gem 'puma', '~> 2.13.4'
 
+# add faker to fake data
+gem 'faker', '~> 1.6', '>= 1.6.1'
+
+# pagination
+gem 'will_paginate', '~> 3.0.7'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 6.0.2'
