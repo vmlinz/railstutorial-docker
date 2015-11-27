@@ -28,14 +28,24 @@ class User < ActiveRecord::Base
   end
 
   # Return true if the given token is matched
-  def authenticated?(remember_token)
-    return false if remember_token.empty?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   # Forget a user
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  def activate
+    update_attribute(:activated, true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
   end
 
   private
