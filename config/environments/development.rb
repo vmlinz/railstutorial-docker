@@ -15,7 +15,16 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :test
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true,
+    :domain => ENV['MY_MAILGUN_DOMAIN_NAME'],
+    :user_name => ENV['MY_MAILGUN_USER_NAME'],
+    :password => ENV['MY_MAILGUN_PASSWORD']
+  }
   host = 'thinkpad-x200:3000'
   config.action_mailer.default_url_options = { host: host }
 
