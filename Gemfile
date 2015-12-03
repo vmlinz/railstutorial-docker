@@ -43,6 +43,12 @@ gem 'puma', '~> 2.13.4'
 # add faker to fake data
 gem 'faker', '~> 1.6', '>= 1.6.1'
 
+# file storage
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3', '>= 4.3.6'
+gem 'fog', '~> 1.36'
+gem 'carrierwave-qiniu', '~> 0.1.8.2'
+
 # pagination
 gem 'will_paginate', '~> 3.0.7'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
