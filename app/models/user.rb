@@ -88,6 +88,11 @@ class User < ActiveRecord::Base
     following.include?(other_user)
   end
 
+  def feed
+    following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
+    Micropost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
+  end
+
   private
     def create_activation_digest
       self.activation_token = User.new_token
