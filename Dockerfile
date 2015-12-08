@@ -1,7 +1,4 @@
-FROM rails:4.2.4
-
-# Install imagemagic to process images
-RUN apt-get update && apt-get install -y imagemagick --no-install-recommends && rm -rf /var/lib/apt/lists/*
+FROM rails:4.2.5
 
 ENV APP_HOME /usr/src/app/
 RUN mkdir $APP_HOME

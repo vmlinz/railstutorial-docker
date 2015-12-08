@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # dot env
 gem 'dotenv-rails', '~> 2.0', '>= 2.0.2', :groups => [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Bootstrap sass
@@ -45,8 +45,6 @@ gem 'faker', '~> 1.6', '>= 1.6.1'
 
 # file storage
 gem 'carrierwave', '~> 0.10.0'
-gem 'mini_magick', '~> 4.3', '>= 4.3.6'
-gem 'fog', '~> 1.36'
 gem 'carrierwave-qiniu', '~> 0.1.8.2'
 
 # pagination
@@ -68,6 +66,7 @@ group :development, :test do
   # Automatically & intelligently launch tests with the minitest framework when
   # files are modified:
   gem 'guard-minitest', '~> 2.4.4'
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.1'
 end
 
 group :production do
